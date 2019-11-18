@@ -6,11 +6,9 @@ services:
       dockerfile: Dockerfile-nginx
     ports:
       - "8080:80"
+
   php:
     build: .
-    volumes:
-      - .:/var/www/
-      - logvolume01:/var/log
 
   redis:
     image: redis
