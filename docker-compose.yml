@@ -1,0 +1,19 @@
+version: '3'
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
+    ports:
+      - "8080:80"
+  php:
+    build: .
+    volumes:
+      - .:/var/www/
+      - logvolume01:/var/log
+
+  redis:
+    image: redis
+
+volumes:
+  logvolume01: {}
